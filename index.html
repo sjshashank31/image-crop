@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Meri practice</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.css">
+  
+  
+<style>
+  img{
+    display: block;
+    max-width: 100%;
+  }
+  .docs-cropped .modal-body > img,
+.docs-cropped .modal-body > canvas {
+  max-width: 100%;
+}
+
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="card" style="height: 400px; width: 500px;">
+    <img id="image1" src="clo-6.png">
+  </div>
+
+  <div class="row" id="actions">
+    <div class="col-md-9 docs-buttons">
+      <div class="btn-group btn-group-crop">
+        <button type="button" class="btn btn-success" data-method="getCroppedCanvas" data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
+          <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getCroppedCanvas({ maxWidth: 4096, maxHeight: 4096 })">
+            Get Cropped Canvas
+          </span>
+        </button>
+        
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
+          <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(-45)">
+            <span class="fa fa-rotate-left"></span>
+          </span>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right">
+          <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(45)">
+            <span class="fa fa-rotate-right"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="modal fade docs-cropped" id="getCroppedCanvasModal" role="dialog" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="getCroppedCanvasTitle">Cropped</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="module" src="main.js">  
+</script>
+</body>
+
+</html>
